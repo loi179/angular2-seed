@@ -86,13 +86,13 @@ module.exports = function(config) {
 
 
     // enable / disable watching file and executing tests whenever any file changes
-    autoWatch: true,
+    autoWatch: false,
 
 
     // start these browsers
     // available browser launchers: https://npmjs.org/browse/keyword/karma-launcher
     browsers: [
-      'Chrome'
+      'PhantomJS'
     ],
 
 
@@ -112,12 +112,19 @@ module.exports = function(config) {
 
     // Continuous Integration mode
     // if true, Karma captures browsers, runs the tests and exits
-    singleRun: false,
+    singleRun: true,
 
     // Passing command line arguments to tests
     client: {
       files: argv.files
-    }
+    },
+
+    plugins: [
+      'karma-jasmine',
+      'karma-phantomjs-launcher',
+      "karma-mocha-reporter",
+      "karma-coverage"
+    ]
   });
 
   if (process.env.APPVEYOR) {
