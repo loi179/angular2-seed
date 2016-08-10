@@ -87,8 +87,8 @@ Promise.all([
       .filter(onlySpecFiles)
       .map(file2moduleName)
       .map(function (path) {
+        console.log(path);
         return System.import(path).then(function (module) {
-          console.log(path);
           if (module.hasOwnProperty('main')) {
             module.main();
           } else {
