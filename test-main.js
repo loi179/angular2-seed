@@ -70,15 +70,15 @@ System.config({
 });
 console.log("Importing - angular testing");
 Promise.all([
-  System.import('@angular/core/testing').catch(function (err) { console.error(err); }),
-  System.import('@angular/platform-browser-dynamic/testing').catch(function (err) { console.error(err); })
+  // System.import('@angular/core/testing').catch(function (err) { console.error(err); }),
+  // System.import('@angular/platform-browser-dynamic/testing').catch(function (err) { console.error(err); })
 ]).then(function (providers) {
   console.log("Imported - angular testing");
-  var testing = providers[0];
-  var testingBrowser = providers[1];
+  // var testing = providers[0];
+  // var testingBrowser = providers[1];
 
-  testing.setBaseTestProviders(testingBrowser.TEST_BROWSER_DYNAMIC_PLATFORM_PROVIDERS,
-    testingBrowser.TEST_BROWSER_DYNAMIC_APPLICATION_PROVIDERS);
+  // testing.setBaseTestProviders(testingBrowser.TEST_BROWSER_DYNAMIC_PLATFORM_PROVIDERS,
+  //   testingBrowser.TEST_BROWSER_DYNAMIC_APPLICATION_PROVIDERS);
 
 }).then(function () {
   console.log("Filter spec files in karma");
