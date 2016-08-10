@@ -11,8 +11,7 @@ module.exports = function (config) {
     basePath: './',
 
     captureTimeout: 60000,
-    browserNoActivityTimeout: 90000,
-    
+
     // frameworks to use
     // available frameworks: https://npmjs.org/browse/keyword/karma-adapter
     frameworks: ['jasmine'],
@@ -38,6 +37,7 @@ module.exports = function (config) {
       // paths loaded via module imports
       // Angular itself
       { pattern: 'node_modules/@angular/**/*.js', included: false, watched: true },
+      { pattern: 'node_modules/@angular/**/*.js.map', included: false, watched: true },
 
       { pattern: 'dist/dev/**/*.js', included: false, watched: true },
       { pattern: 'dist/dev/**/*.html', included: false, watched: true, served: true },

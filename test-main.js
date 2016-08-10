@@ -70,8 +70,8 @@ System.config({
 });
 console.log("Importing - angular testing");
 Promise.all([
-  System.import('@angular/core/testing'),
-  System.import('@angular/platform-browser-dynamic/testing')
+  System.import('@angular/core/testing').catch(function (err) { console.error(err); }),
+  System.import('@angular/platform-browser-dynamic/testing').catch(function (err) { console.error(err); })
 ]).then(function (providers) {
   console.log("Imported - angular testing");
   var testing = providers[0];
