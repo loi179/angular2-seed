@@ -18,6 +18,7 @@ jasmine.DEFAULT_TIMEOUT_INTERVAL = 10000;
 // we will call `__karma__.start()` later, once all the specs are loaded.
 __karma__.loaded = function () { console.log("Karma - Loaded") };
 
+console.log("System config");
 // Load our SystemJS configuration.
 System.config({
   baseURL: '/base/'
@@ -67,11 +68,12 @@ System.config({
     }
   }
 });
-
+console.log("Importing - angular testing");
 Promise.all([
   System.import('@angular/core/testing'),
   System.import('@angular/platform-browser-dynamic/testing')
 ]).then(function (providers) {
+  console.log("Imported - angular testing");
   var testing = providers[0];
   var testingBrowser = providers[1];
 
@@ -79,6 +81,7 @@ Promise.all([
     testingBrowser.TEST_BROWSER_DYNAMIC_APPLICATION_PROVIDERS);
 
 }).then(function () {
+  console.log("Filter spec files in karma");
   return Promise.all(
     Object.keys(window.__karma__.files) // All files served by Karma.
       .filter(onlySpecFiles)
